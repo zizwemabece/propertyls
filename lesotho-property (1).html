@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PropertyLS – Property for sale and rent in Lesotho</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3ebdf;--card:#fffaf3;--ink:#2e1f14;--mut:#6b5646;--line:#d0c0a6;--blue:#2a4f45;--green:#2a4f45;--red:#f2b885;--rt:#593622;--hero:#2a4f45;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#16211e;--card:#1f2d29;--ink:#f1e8dc;--mut:#c4b5a0;--line:#37463f;--blue:#f2b885;--green:#2a4f45;--hero:#2a4f45}}
+:root[data-theme="dark"]{--bg:#16211e;--card:#1f2d29;--ink:#f1e8dc;--mut:#c4b5a0;--line:#37463f;--blue:#f2b885;--green:#2a4f45;--hero:#2a4f45}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 'Source Sans 3',system-ui,sans-serif}
+h1,h2,h3{font-family:'Bricolage Grotesque',system-ui,sans-serif;line-height:1.15;margin:0}
+a{color:inherit}button,input,select,textarea{font:inherit;color:inherit}
+header{display:flex;align-items:center;gap:20px;padding:14px 5vw;background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:env(safe-area-inset-top,0px);z-index:5;flex-wrap:wrap}
+.logo{font:800 22px 'Bricolage Grotesque',sans-serif;text-decoration:none;color:var(--blue)}.logo b{color:#593622}@media(prefers-color-scheme:dark){.logo b{color:#d9c6b0}}
+nav{display:flex;gap:18px;flex:1;flex-wrap:wrap}nav a{text-decoration:none;font-weight:600;color:var(--mut)}nav a:hover{color:var(--ink)}
+.btn{border:1px solid var(--line);background:var(--card);padding:9px 16px;border-radius:8px;cursor:pointer;font-weight:600;text-decoration:none;display:inline-block}
+.btn.g{background:var(--green);border-color:var(--green);color:#fff}.price{color:#2a4f45}@media(prefers-color-scheme:dark){.price{color:#f2b885}}.btn.r{background:var(--red);border-color:var(--red);color:#593622}
+.btn:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible,textarea:focus-visible{outline:3px solid #7aa2ff;outline-offset:2px}
+.hero{background:var(--hero);color:#fff;padding:56px 5vw 64px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-60px;bottom:-1px;width:min(520px,70vw);height:220px;background:linear-gradient(135deg,transparent 49%,rgba(255,255,255,.09) 50%);clip-path:polygon(0 100%,25% 35%,38% 60%,62% 10%,100% 100%)}
+.hero h1{font-size:clamp(30px,5vw,52px);max-width:16ch}.hero p{opacity:.85;max-width:50ch}
+.tabs{display:flex;gap:6px;margin:22px 0 10px}.tabs button{background:none;border:0;color:#fff;opacity:.7;padding:8px 14px;font-weight:600;cursor:pointer;border-bottom:3px solid transparent}
+.tabs button[aria-pressed=true]{opacity:1;border-color:#f2b885}
+.search{background:var(--card);color:var(--ink);border-radius:12px;padding:14px;display:grid;grid-template-columns:2fr 1.2fr 1fr 1fr 1fr auto;gap:10px;position:relative;z-index:1}
+.search input,.search select,.f input,.f select,.f textarea{width:100%;padding:11px;border:1px solid var(--line);border-radius:8px;background:var(--bg)}
+section{padding:48px 5vw}.wrap{max-width:1180px;margin:0 auto}
+.bar{display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap;margin-bottom:18px}.bar p{margin:4px 0 0;color:var(--mut)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+.ph{color:#2e1f14;height:150px;display:flex;align-items:flex-end;padding:10px;font-size:42px;position:relative}
+.tag{position:absolute;top:10px;left:10px;background:rgba(0,0,0,.55);color:#fff;font-size:12px;padding:3px 9px;border-radius:99px}
+.card .b{padding:14px;display:flex;flex-direction:column;gap:4px;flex:1}.price{font:800 21px 'Bricolage Grotesque',sans-serif;color:var(--blue)}
+.meta{color:var(--mut);font-size:14px}.row{display:flex;gap:14px;font-size:14px;margin-top:6px}
+.heart{position:absolute;top:8px;right:8px;background:var(--card);border:0;border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:17px}
+.pk{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.pk .card{padding:20px;gap:8px}.pk .card.pop{border:2px solid var(--green)}.pk ul{padding:0;margin:8px 0 14px;list-style:none;flex:1}
+.pk li{padding:3px 0 3px 22px;position:relative;font-size:15px}.pk li:before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
+.alt{background:var(--card);border-block:1px solid var(--line)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.f{display:grid;gap:12px}.f label{font-weight:600;font-size:14px;display:grid;gap:4px}
+.steps{counter-reset:s;display:grid;gap:12px;padding:0;list-style:none}.steps li{counter-increment:s;padding-left:44px;position:relative}
+.steps li:before{content:counter(s);position:absolute;left:0;top:0;width:32px;height:32px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:700}
+.towns{display:flex;flex-wrap:wrap;gap:8px}.towns button{padding:7px 14px;border-radius:99px;border:1px solid var(--line);background:var(--card);cursor:pointer}
+.towns button:hover{border-color:var(--blue)}
+footer{background:#1c3730;color:#d9c6b0;padding:36px 5vw;font-size:14px}
+dialog{border:0;border-radius:14px;padding:24px;max-width:460px;width:92%;background:var(--card);color:var(--ink)}dialog::backdrop{background:rgba(0,0,0,.5)}
+.toast{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--green);color:#fff;padding:12px 20px;border-radius:10px;display:none;z-index:9}
+@media(max-width:820px){.search{grid-template-columns:1fr 1fr}.search input:first-child{grid-column:1/-1}.two{grid-template-columns:1fr}nav{order:3;flex-basis:100%}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style></head><body>
+<header><a class="logo" href="#top">Property<b>LS</b></a>
+<nav><a href="#listings" data-go="sale">Buy</a><a href="#listings" data-go="rent">Rent</a><a href="#sell">Sell</a><a href="#commercial">Commercial</a><a href="#value">Valuation</a><a href="#advice">Advice</a></nav>
+<a class="btn" href="#sell">List privately</a><button class="btn" id="favBtn">♡ Saved (<span id="fc">0</span>)</button></header>
+
+<div class="hero" id="top"><h1>Find your place in the Mountain Kingdom</h1>
+<p>Houses, flats, land and commercial property across all ten districts of Lesotho. Prices in Maloti (M).</p>
+<div class="tabs" role="group" aria-label="Listing type"><button aria-pressed="true" data-mode="sale">Buy</button><button aria-pressed="false" data-mode="rent">Rent</button></div>
+<div class="search">
+<input id="q" placeholder="Search a town, suburb or reference" aria-label="Location">
+<select id="ty" aria-label="Property type"><option value="">Any type</option><option>House</option><option>Apartment</option><option>Townhouse</option><option>Land</option><option>Commercial</option><option>Farm</option></select>
+<select id="mn" aria-label="Min price"></select><select id="mx" aria-label="Max price"></select>
+<select id="bd" aria-label="Bedrooms"><option value="0">Beds: any</option><option value="1">1+</option><option value="2">2+</option><option value="3">3+</option><option value="4">4+</option></select>
+<button class="btn r" id="go">Search</button></div></div>
+
+<section id="listings"><div class="wrap"><div class="bar"><div><h2 id="ltitle">Property for sale</h2><p id="lcount"></p></div>
+<select id="sort" aria-label="Sort" class="btn"><option value="new">Newest</option><option value="lo">Price: low to high</option><option value="hi">Price: high to low</option></select></div>
+<div class="grid" id="grid"></div></div></section>
+
+<section class="alt"><div class="wrap"><h2>Browse by town</h2><p class="meta">Tap a town to filter listings.</p><div class="towns" id="towns"></div></div></section>
+
+<section id="value"><div class="wrap two"><div><h2>Get a free valuation</h2><p>Tell us about your property and we'll send you an estimate of what it could sell or rent for. Estimates come from comparable listings and local agents.</p></div>
+<form class="f" id="vf"><label>Street address or plot number<input required name="a"></label>
+<label>Property type<select name="t"><option>House</option><option>Apartment</option><option>Townhouse</option><option>Land</option><option>Commercial</option></select></label>
+<label>When do you want to sell?<select name="w"><option>Now</option><option>In 1–3 months</option><option>In 4–6 months</option><option>I'm not looking to sell</option></select></label>
+<button class="btn g">Next: share contact details</button></form></div></section>
+
+<section class="alt" id="sell"><div class="wrap"><h2>Sell your property</h2><p class="meta">Listings run for 6 months. Buyers contact you through a virtual number, so your own stays private.</p><br>
+<div class="pk" id="pk"></div></div></section>
+
+<section><div class="wrap two"><div><h2>How listing works</h2><ol class="steps"><li><b>Sign up.</b> Add your name, email and mobile number.</li><li><b>Add property details.</b> Photos, size, rooms, price and description.</li><li><b>Pay.</b> Pay by M-Pesa, EcoCash, card or EFT. Your ad goes to moderation and is usually live within 1 business day.</li></ol></div>
+<div class="f" id="commercial"><h3>Rent out your property</h3><p class="meta">Find a tenant for a flat, house or shop. Track enquiries from your dashboard.</p><a class="btn g" href="#sell" data-pkg="Rental: Find a Tenant (M 129)">List a rental</a>
+<h3 id="advice" style="margin-top:14px">Advice</h3><p class="meta">Buying with a lease on Basotho land? Read how Lesotho's leasehold system works, what the Land Administration Authority requires, and the transfer costs before you sign.</p></div></div></section>
+
+<footer><b style="color:#fff">PropertyLS</b> · Demo platform with sample listings. Prices and contacts are fictional. <br>Maseru · Leribe · Berea · Mafeteng · Mohale's Hoek · Quthing · Qacha's Nek · Mokhotlong · Thaba-Tseka · Butha-Buthe</footer>
+
+<dialog id="dl"><h3 id="dt"></h3><form class="f" id="cf" style="margin-top:12px"><label>Full name<input required name="n"></label><label>Email<input required type="email" name="e"></label><label>Mobile number<input required name="m" placeholder="+266 …"></label><label>Message<textarea name="x" rows="2"></textarea></label>
+<div style="display:flex;gap:8px"><button class="btn g">Send</button><button type="button" class="btn" id="cx">Cancel</button></div><small class="meta">By continuing you agree to the Terms and Privacy Policy.</small></form></dialog>
+<div class="toast" id="ts" role="status"></div>
+
+<script>
+const L=[
+["House","Maseru West","sale",1850000,3,2,2,320,"🏡","#d9c6b0"],
+["Apartment","Maseru CBD","sale",890000,2,1,1,78,"🏢","#d0c0a6"],
+["Townhouse","Ha Thetsane","sale",1250000,3,2,1,140,"🏘️","#f2b885"],
+["House","Roma","rent",6500,3,1,1,160,"🏠","#e6d6c0"],
+["Apartment","Maseru West","rent",4200,1,1,1,52,"🏢","#d0c0a6"],
+["Land","Maputsoe","sale",260000,0,0,0,900,"🌾","#cbd3bf"],
+["House","Hlotse","sale",980000,4,2,2,210,"🏡","#d9c6b0"],
+["Commercial","Maseru CBD","rent",18000,0,2,0,240,"🏬","#c9b59b"],
+["Farm","Mafeteng","sale",3400000,3,2,2,24000,"🚜","#cbd3bf"],
+["House","Teyateyaneng","sale",720000,3,1,1,180,"🏠","#f2b885"],
+["Townhouse","Maseru West","rent",8900,2,2,1,110,"🏘️","#e6d6c0"],
+["House","Mohale's Hoek","rent",3800,2,1,0,120,"🏡","#d9c6b0"],
+["Commercial","Maputsoe","sale",2100000,0,2,4,400,"🏭","#c9b59b"],
+["Land","Qacha's Nek","sale",150000,0,0,0,1200,"⛰️","#d0c0a6"]
+].map((a,i)=>({id:i,type:a[0],town:a[1],mode:a[2],price:a[3],bd:a[4],ba:a[5],gr:a[6],m2:a[7],ic:a[8],bg:a[9]}));
+const T=["Maseru","Maseru West","Maseru CBD","Ha Thetsane","Roma","Maputsoe","Hlotse","Teyateyaneng","Mafeteng","Mohale's Hoek","Qacha's Nek"];
+const P=[["Self Service Lite","M 99","For properties up to M 500 000",["Residential only","List for 6 months","Unlimited photos","Lead notifications"]],
+["Self Service","M 399","Use our guided tools to build your ad",["All property types","List for 6 months","Virtual phone number","Listing performance tracking"],1],
+["Assisted","M 699","Our team writes and photographs for you",["Professional photography","Description writing","Floor plans","6 months listing"]],
+["Featured","M 899","Assisted, plus top placement",["Everything in Assisted","Featured for 7 days","Bigger lead image"]]];
+let mode="sale",favs=new Set();
+const $=s=>document.querySelector(s),M=n=>"M "+n.toLocaleString("en-ZA").replace(/,/g," ");
+function opts(){const v=mode=="sale"?[0,200000,500000,1000000,2000000,5000000]:[0,2000,4000,6000,10000,20000];
+$("#mn").innerHTML=v.map(x=>`<option value="${x}">${x?"Min "+M(x):"Min price"}</option>`).join("");
+$("#mx").innerHTML='<option value="0">Max price</option>'+v.slice(1).map(x=>`<option value="${x}">Max ${M(x)}</option>`).join("")}
+function render(favOnly){let q=$("#q").value.toLowerCase(),t=$("#ty").value,mn=+$("#mn").value,mx=+$("#mx").value,b=+$("#bd").value;
+let r=L.filter(x=>(favOnly?favs.has(x.id):x.mode==mode)&&(!q||(x.town+x.type).toLowerCase().includes(q))&&(!t||x.type==t)&&x.price>=mn&&(!mx||x.price<=mx)&&x.bd>=b);
+const s=$("#sort").value;r.sort((a,c)=>s=="lo"?a.price-c.price:s=="hi"?c.price-a.price:c.id-a.id);
+$("#ltitle").textContent=favOnly?"Saved properties":mode=="sale"?"Property for sale":"Property to rent";
+$("#lcount").textContent=r.length+" propert"+(r.length==1?"y":"ies")+" found";
+$("#grid").innerHTML=r.length?r.map(x=>`<article class="card"><div class="ph" style="background:${x.bg}"><span class="tag">${x.type}</span><button class="heart" data-f="${x.id}" aria-label="Save">${favs.has(x.id)?"♥":"♡"}</button>${x.ic}</div><div class="b"><div class="price">${M(x.price)}${x.mode=="rent"?" pm":""}</div><div>${x.bd?x.bd+" bedroom ":""}${x.type} in <b>${x.town}</b></div><div class="row meta">${x.bd?`<span>🛏 ${x.bd}</span><span>🛁 ${x.ba}</span><span>🚗 ${x.gr}</span>`:""}<span>${x.m2.toLocaleString("en-ZA")} m²</span></div><button class="btn" style="margin-top:10px" data-c="${x.id}">Contact seller</button></div></article>`).join(""):'<p>No properties match. Try widening your price range or clearing the type.</p>'}
+function toast(m){const t=$("#ts");t.textContent=m;t.style.display="block";setTimeout(()=>t.style.display="none",3200)}
+function ask(title){$("#dt").textContent=title;$("#dl").showModal()}
+document.addEventListener("click",e=>{const d=e.target.closest("[data-mode],[data-f],[data-c],[data-go],[data-pkg],[data-t]");if(!d)return;
+if(d.dataset.mode){mode=d.dataset.mode;document.querySelectorAll(".tabs button").forEach(b=>b.setAttribute("aria-pressed",b==d));opts();render()}
+if(d.dataset.go){mode=d.dataset.go;document.querySelectorAll(".tabs button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.mode==mode));opts();render()}
+if(d.dataset.f){const i=+d.dataset.f;favs.has(i)?favs.delete(i):favs.add(i);$("#fc").textContent=favs.size;d.textContent=favs.has(i)?"♥":"♡"}
+if(d.dataset.c){const x=L[+d.dataset.c];ask("Contact about "+x.type+" in "+x.town)}
+if(d.dataset.pkg)ask(d.dataset.pkg);
+if(d.dataset.t){$("#q").value=d.dataset.t;render();$("#listings").scrollIntoView()}});
+$("#go").onclick=()=>{render();$("#listings").scrollIntoView()};
+["sort","ty","mn","mx","bd"].forEach(i=>$("#"+i).onchange=()=>render());$("#q").oninput=()=>render();
+$("#favBtn").onclick=()=>{render(true);$("#listings").scrollIntoView()};
+$("#towns").innerHTML=T.map(t=>`<button data-t="${t}">${t}</button>`).join("");
+$("#pk").innerHTML=P.map(p=>`<div class="card${p[4]?" pop":""}"><h3>${p[0]}${p[4]?" · most popular":""}</h3><div class="price">${p[1]}</div><div class="meta">${p[2]}</div><ul>${p[3].map(f=>`<li>${f}</li>`).join("")}</ul><button class="btn ${p[4]?"g":""}" data-pkg="${p[0]} package, ${p[1]}">List your property</button></div>`).join("");
+$("#vf").onsubmit=e=>{e.preventDefault();ask("Where should we send your valuation?")};
+$("#cf").onsubmit=e=>{e.preventDefault();$("#dl").close();e.target.reset();toast("Sent. We'll be in touch within 1 business day.")};
+$("#cx").onclick=()=>$("#dl").close();
+opts();render();
+</script></body></html>
